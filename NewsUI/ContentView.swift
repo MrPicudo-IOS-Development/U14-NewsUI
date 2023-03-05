@@ -5,9 +5,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            List(posts){
-                Text($0.title)
-            }
+            Text("hola")
         }
     }
 }
@@ -18,19 +16,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-// Estructura que adopta el protocolo Identifiable, que requiere forsozamente de un atributo llamado id.
-struct Post: Identifiable {
-    let id = UUID() // Le asignamos un identificador único a cada objeto.
-    let title: String
-}
 
-// Arreglo de objetos tipo Post
-let posts = [
-    Post(title: "Hola"),
-    Post(title: "Mundo"),
-    Post(title: "desde"),
-    Post(title: "SwiftUI")
-]
 
 /* Notas de la aplicación:
  
@@ -49,5 +35,21 @@ let posts = [
      Text("Objeto 5")
      Image(systemName: "tray.circle")
  }
+ 
+ 
+ // Estructura que adopta el protocolo Identifiable, que requiere forsozamente de un atributo llamado id.
+ struct Post: Identifiable {
+     let id = UUID() // Le asignamos un identificador único a cada objeto.
+     let title: String
+ }
+
+ // Arreglo de objetos tipo Post
+ let posts = [
+     Post(title: "Hola"),
+     Post(title: "Mundo"),
+     Post(title: "desde"),
+     Post(title: "SwiftUI")
+ ]
+ 
  
  */
