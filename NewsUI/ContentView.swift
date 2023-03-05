@@ -3,9 +3,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // Variable que permite transmitir la información de la clase con el protocolo ObservableObject.
+    @ObservedObject var networkManager = NetworkManager()
+    
     var body: some View {
         NavigationStack {
-            Text("hola")
+            List(networkManager.posts) { post in
+                HStack {
+                    Text(String(post.points))
+                    Text(post.title)
+                }
+                
+            }
+            .navigationTitle("Hola")
+        }
+        .onAppear {
+            self.networkManager.fetchData()
         }
     }
 }
