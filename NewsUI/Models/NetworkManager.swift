@@ -20,11 +20,9 @@ class NetworkManager: ObservableObject {
                             DispatchQueue.main.async {
                                 self.posts = results.hits // Siempre que usemos un atributo de la clase dentro de un closure, debemos usar la palabra reservada self.
                             }
-                            
                         } catch {
                             print(error)
                         }
-                        
                     }
                 }
             }

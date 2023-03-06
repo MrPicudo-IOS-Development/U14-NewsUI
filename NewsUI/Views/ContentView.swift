@@ -10,13 +10,16 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(networkManager.posts) { post in
-                HStack {
-                    Text(String(post.points))
-                    Text(post.title)
+                // Aquí mandamos la url que se va a usar para construir la vista del DetailView.
+                NavigationLink(destination: DetailView(url: post.url)) {
+                    HStack {
+                        Text(String(post.points))
+                            .foregroundColor(.purple)
+                        Text(post.title)
+                    }
                 }
-                
             }
-            .navigationTitle("Hola")
+            .navigationTitle("Hacker News")
         }
         .onAppear {
             self.networkManager.fetchData()
@@ -38,31 +41,31 @@ struct ContentView_Previews: PreviewProvider {
  
  Lista simple creada para practicar:
  List {
-     Text("Objeto 1")
-     Image(systemName: "heart")
-     Text("Objeto 2")
-     Image(systemName: "pencil")
-     Text("Objeto 3")
-     Image(systemName: "folder")
-     Text("Objeto 4")
-     Image(systemName: "paperplane.circle")
-     Text("Objeto 5")
-     Image(systemName: "tray.circle")
+ Text("Objeto 1")
+ Image(systemName: "heart")
+ Text("Objeto 2")
+ Image(systemName: "pencil")
+ Text("Objeto 3")
+ Image(systemName: "folder")
+ Text("Objeto 4")
+ Image(systemName: "paperplane.circle")
+ Text("Objeto 5")
+ Image(systemName: "tray.circle")
  }
  
  
  // Estructura que adopta el protocolo Identifiable, que requiere forsozamente de un atributo llamado id.
  struct Post: Identifiable {
-     let id = UUID() // Le asignamos un identificador único a cada objeto.
-     let title: String
+ let id = UUID() // Le asignamos un identificador único a cada objeto.
+ let title: String
  }
-
+ 
  // Arreglo de objetos tipo Post
  let posts = [
-     Post(title: "Hola"),
-     Post(title: "Mundo"),
-     Post(title: "desde"),
-     Post(title: "SwiftUI")
+ Post(title: "Hola"),
+ Post(title: "Mundo"),
+ Post(title: "desde"),
+ Post(title: "SwiftUI")
  ]
  
  
